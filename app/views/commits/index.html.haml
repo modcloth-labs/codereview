@@ -1,0 +1,10 @@
+%ul
+  -@commits.each do |c|
+    %li
+      .buttons-container
+        %a{:href => '',:class => 'button'} Review
+      .commit-description
+        %span.id="#{c.id} :: "
+        %span.author=c.author
+        %br
+        %span.message=c.message

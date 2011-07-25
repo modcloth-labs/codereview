@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title= Codereview
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+  %body
+    #container
+      #header
+        %h1 Commits
+      #content
+        = yield
