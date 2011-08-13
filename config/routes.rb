@@ -2,8 +2,16 @@ Codereview::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :commits
+  root :to => 'commits#index'
   
+  resources :commits do
+    collection do
+      get 'start_review/:id', :action => 'start_review', :as => 'start_review'
+      get 'sync'
+      get 'erase'
+    end
+  end
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

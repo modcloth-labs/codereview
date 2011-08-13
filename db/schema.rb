@@ -10,9 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725055950) do
+ActiveRecord::Schema.define(:version => 20110725062559) do
 
   create_table "commits", :force => true do |t|
+    t.string   "refid"
+    t.string   "author"
+    t.string   "message"
+    t.boolean  "accepted"
+    t.boolean  "is_new",     :default => true
+    t.boolean  "started",    :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "samples", :force => true do |t|
+    t.string   "refid"
+    t.string   "reviewer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

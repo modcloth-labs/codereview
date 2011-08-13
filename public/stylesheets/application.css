@@ -699,11 +699,7 @@ legend span {
 * html #container #header {
   overflow-x: hidden;
 }
-/* line 18, ../../app/stylesheets/application.scss */
-#container #header h1 {
-  border-bottom: 1px solid #CCC;
-}
-/* line 21, ../../app/stylesheets/application.scss */
+/* line 20, ../../app/stylesheets/application.scss */
 #container #content {
   display: inline;
   float: left;
@@ -714,7 +710,7 @@ legend span {
 * html #container #content {
   overflow-x: hidden;
 }
-/* line 24, ../../app/stylesheets/application.scss */
+/* line 23, ../../app/stylesheets/application.scss */
 #container #content ul li {
   display: inline;
   float: left;
@@ -725,31 +721,90 @@ legend span {
 * html #container #content ul li {
   overflow-x: hidden;
 }
+/* line 25, ../../app/stylesheets/application.scss */
+#container #content ul li.rejected {
+  color: #A54750;
+}
 /* line 28, ../../app/stylesheets/application.scss */
 #container #content .buttons-container {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 70px;
+  width: 125px;
+  padding-top: 5px;
 }
-/* line 147, ../../../../../.rvm/gems/ruby-1.9.2-p180@codereview/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html #container #content .buttons-container {
-  overflow-x: hidden;
+/* line 34, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 6px;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 10px;
+  color: #FFF;
+  text-decoration: none;
+  text-transform: uppercase;
 }
-/* line 32, ../../app/stylesheets/application.scss */
+/* line 44, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a.yes {
+  background-color: #40ae4c;
+}
+/* line 45, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a.no {
+  background-color: #CC2119;
+}
+/* line 46, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a.review {
+  color: #333;
+  width: 106px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+/* line 47, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a.review.skip {
+  font-weight: normal;
+  font-style: italic;
+  background-color: #EEE;
+}
+/* line 48, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a.review.skip:hover {
+  font-weight: normal;
+  font-style: italic;
+  background-color: #DDD;
+}
+/* line 52, ../../app/stylesheets/application.scss */
 #container #content .commit-description {
   display: inline;
   float: left;
-  margin-right: 10px;
   width: 790px;
-  margin-right: 0;
 }
-/* line 147, ../../../../../.rvm/gems/ruby-1.9.2-p180@codereview/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html #container #content .commit-description {
-  overflow-x: hidden;
-}
-/* line 36, ../../app/stylesheets/application.scss */
+/* line 57, ../../app/stylesheets/application.scss */
 #container #content .commit-description .id, #container #content .commit-description .author {
   font-size: 10px;
   line-height: 10px;
+}
+/* line 64, ../../app/stylesheets/application.scss */
+#container #control_panel {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 950px;
+  margin-right: 0;
+  text-align: right;
+  padding: 0px;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 8px;
+}
+/* line 147, ../../../../../.rvm/gems/ruby-1.9.2-p180@codereview/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container #control_panel {
+  overflow-x: hidden;
+}
+/* line 72, ../../app/stylesheets/application.scss */
+#container #control_panel .button {
+  margin: 4px 0;
 }

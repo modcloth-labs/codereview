@@ -5,9 +5,9 @@
 
 @import "compass/reset";
 @import "blueprint/grid";
+@import "compass/css3";
 
 @import "vendor/skeleton/base";
-
 
 #container {
   @include container();
@@ -15,7 +15,6 @@
   #header {
     @include column(24);
 
-    h1 { border-bottom:1px solid #CCC;}
   }
 
   #content {
@@ -23,21 +22,54 @@
 
     ul li{
       @include column(24);
+      &.rejected { color:#A54750; }
       
     }
     .buttons-container {
-      @include column(2);
+      display: inline;
+      float: left;
+      margin-right: 10px;
+      width: 125px;
+      padding-top:5px;
+      a {
+        @include border-radius(4px);
+        display:inline-block;
+        padding:6px;
+        font-size:10px;
+        font-weight: bold;
+        line-height:10px;
+        color:#FFF;
+        text-decoration: none;
+        text-transform: uppercase;
+        &.yes{ background-color: #40ae4c; }
+        &.no{ background-color: #CC2119; }
+        &.review { color: #333; width:106px; text-align: center; margin-bottom:8px;}
+        &.review.skip { font-weight:normal; font-style:italic; background-color:#EEE;}
+        &.review.skip:hover { font-weight:normal; font-style:italic; background-color:#DDD;}
+      }
     }
 
     .commit-description {
-      @include column(20);
-      @include last();
+      display: inline;
+      float: left;
+      width: 790px;
 
       .id, .author {
         font-size:10px;
         line-height:10px;
       }
     }
+  }
+
+  #control_panel{
+    @include column(24);
+    @include last();
+    text-align:right;
+    padding:0px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 8px;
+
+    .button { margin: 4px 0;}
   }
 }
 
