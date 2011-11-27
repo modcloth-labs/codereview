@@ -16,6 +16,7 @@ class CommitsController < ApplicationController
 
   def start_review
     c = Commit.find_by_refid(params[:refid])
+    debugger
     c.update_attributes(:started => true, :accepted => nil)
     render :js => "codereview.start_review('#{params[:refid]}')"
   end

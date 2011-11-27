@@ -15,6 +15,7 @@ gem 'compass'
 
 gem 'jquery-rails', '>= 1.0.12'
 
+gem 'awesome_print'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -36,4 +37,7 @@ gem 'jquery-rails', '>= 1.0.12'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'rspec-rails'
+  gem 'webrat'
+  gem 'capybara'
+  gem 'ruby-debug'
 end
