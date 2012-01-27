@@ -7,10 +7,10 @@ class Commit < ActiveRecord::Base
 
   def self.sync
     commits = Commit.all.map(&:refid)
-    repo = Grit::Repo.new('/Users/edu/lib/modcloth/dsc/ecomm/sphere_dsc_filter')
-    new_commits = repo.commits('sphere_dsc_filter',20).select{|c| c.message.include? '[DSC]'}.reject{|c| commits.include? c.id}
-#    repo = Grit::Repo.new('/Users/edu/lib/ruby/mailinator')
-#    new_commits = repo.commits('master',20).reject{|c| commits.include? c.id}
+    #repo = Grit::Repo.new('/Users/modcloth/workspace/codereview')
+    #new_commits = repo.commits('sphere_dsc_filter',20).select{|c| c.message.include? '[DSC]'}.reject{|c| commits.include? c.id}
+    repo = Grit::Repo.new('/Users/modcloth/workspace/codereview')
+    new_commits = repo.commits('master',20).reject{|c| commits.include? c.id}
 
     new_commits.each{ |c|
       Commit.new(

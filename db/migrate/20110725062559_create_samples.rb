@@ -8,7 +8,4 @@ class CreateSamples < ActiveRecord::Migration
     end
   end
 
-  def self.down
-    drop_table :samples
-  end
 end

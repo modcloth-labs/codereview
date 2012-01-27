@@ -39,5 +39,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'webrat'
   gem 'capybara'
-  gem 'ruby-debug'
+  #gem 'ruby-debug'
 end
