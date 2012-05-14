@@ -29,6 +29,7 @@ GEM
       activesupport (= 3.0.9)
     activesupport (3.0.9)
     arel (2.0.10)
+    awesome_print (1.0.2)
     builder (2.1.2)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -123,6 +124,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   capybara
   compass
   grit
