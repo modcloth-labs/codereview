@@ -784,9 +784,10 @@ legend span {
   width: 790px;
 }
 /* line 57, ../../app/stylesheets/application.scss */
-#container #content .commit-description .id, #container #content .commit-description .author {
-  font-size: 10px;
-  line-height: 10px;
+#container #content .commit-description .id, #container #content .commit-description .author, #content .commit-description .commit-date {
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 12px;
 }
 /* line 64, ../../app/stylesheets/application.scss */
 #container #control_panel {

@@ -19,8 +19,10 @@ var codereview = {
   },
 
   start_review: function(id) {
-    $('#' + id + ' .buttons-container').hide();
-    $('#' + id + ' .buttons-container.started').fadeIn(100);
+    //$('#' + id + ' .buttons-container').hide();
+    //$('#' + id + ' .buttons-container.started').fadeIn(100);
+    $('#' + id + ' .buttons-container.start-skip-review').hide();
+    $('#' + id + ' .buttons-container.accept-reject-commit').fadeIn(100);
   },
   
   sampleNamespace: {}

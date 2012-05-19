@@ -55,8 +55,9 @@
       width: 790px;
 
       .id, .author, .commit_date {
-        font-size:10px;
-        line-height:10px;
+        font-family: monospace;
+        font-size: 10px;
+        line-height: 10px;
       }
     }
   }

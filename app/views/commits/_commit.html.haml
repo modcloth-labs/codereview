@@ -1,0 +1,14 @@
+%li{:id => commit.refid, :class => @itemtype}
+  - unless commit.started?
+    .buttons-container.start-skip-review
+      =link_to 'Start Review', start_review_commits_path(commit, :refid => commit.refid),                'data-remote' => 'true', :class => 'button review'
+      =link_to 'Skip Review',  edit_commit_path(commit, :edit_type => 'accept', :refid => commit.refid), 'data-remote' => 'true', :class => 'skip review'
+  .buttons-container.accept-reject-commit{:style => (commit.started? ? "display: ''" : "display: none")}
+    =link_to 'Good',      edit_commit_path(commit, :edit_type => 'accept', :refid => commit.refid), 'data-remote' => 'true', :class => 'yes'
+    =link_to 'Follow Up', edit_commit_path(commit, :edit_type => 'reject', :refid => commit.refid), 'data-remote' => 'true', :class => 'no'
+  .commit-description
+    %span.id= "#{commit.refid} :: "
+    %span.author= "#{commit.author} :: "
+    %span.commit-date= commit.commit_date
+    %br
+    %span.message= simple_format commit.message.gsub("\n","<br />")
