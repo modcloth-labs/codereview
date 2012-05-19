@@ -11,6 +11,7 @@ class CommitsController < ApplicationController
       @commit.update_attributes(:accepted => (params[:edit_type] == 'accept'), :is_new => false)
     end
 
+puts "XXX codereview.#{params[:edit_type]}('#{params[:refid]}')"
     render :js => "codereview.#{params[:edit_type]}('#{params[:refid]}')"
   end
 
@@ -19,10 +20,12 @@ class CommitsController < ApplicationController
     c.update_attributes(:started => true, :accepted => nil)
     render :js => "codereview.start_review('#{params[:refid]}')"
   end
+  
   def sync
     Commit.sync
     redirect_to commits_path
   end
+  
   def erase
     Commit.restart
     redirect_to commits_path
