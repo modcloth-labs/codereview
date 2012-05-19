@@ -1,6 +1,6 @@
 class CommitsController < ApplicationController
   def index
-    @new_commits = Commit.new_commits
+    @new_commits      = Commit.new_commits
     @rejected_commits = Commit.rejected
   end
 
@@ -11,7 +11,6 @@ class CommitsController < ApplicationController
       @commit.update_attributes(:accepted => (params[:edit_type] == 'accept'), :is_new => false)
     end
 
-puts "XXX codereview.#{params[:edit_type]}('#{params[:refid]}')"
     render :js => "codereview.#{params[:edit_type]}('#{params[:refid]}')"
   end
 
