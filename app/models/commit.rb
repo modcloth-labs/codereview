@@ -18,7 +18,7 @@ class Commit < ActiveRecord::Base
         :refid       => c.id,
         :author      => c.author.name,
         :message     => c.message,
-        :commit_date => c.date
+        :commit_date => c.date,
         :accepted    => nil,
         :is_new      => true
       ).save

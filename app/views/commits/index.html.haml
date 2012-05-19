@@ -7,6 +7,7 @@
       .commit-description
         %span.id= "#{c.refid} :: "
         %span.author= c.author
+        %span.commit_date= c.commit_date
         %br
         %span.message= simple_format c.message.gsub("\n","<br />")
 
@@ -26,5 +27,6 @@
       .commit-description
         %span.id= "#{c.refid} :: "
         %span.author= c.author
+        %span.commit_date= c.commit_date
         %br
         %span.message= simple_format c.message.gsub("\n","<br />")
