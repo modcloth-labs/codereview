@@ -12,6 +12,8 @@ gem 'compass'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'awesome_print'
 
+gem 'grit'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'

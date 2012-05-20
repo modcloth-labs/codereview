@@ -1,5 +1,3 @@
-require 'grit'
-
 class Commit < ActiveRecord::Base
   PATH_TO_REPO = YAML.load(File.read 'config/git.yml')[:path]
 
