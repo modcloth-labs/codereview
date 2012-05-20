@@ -1,4 +1,4 @@
 %ul
-  = render @rejected_commits, :as => :commits, :locals => { :itemtype => 'rejected' }
-  = render @new_commits,      :as => :commits, :locals => { :itemtype => 'new' }
+  = render :partial => "commit", :collection => @rejected_commits, :locals => { :itemtype => 'rejected' }
+  = render :partial => "commit", :collection => @new_commits,      :locals => { :itemtype => 'new' }
 

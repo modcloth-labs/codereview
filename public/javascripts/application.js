@@ -4,12 +4,10 @@ var codereview = {
   },
 
   accept: function(id_to_accept){
-    $('#' + id_to_accept).animate({
-      height:  0,
-      opacity: 0,
-      color:   '#40ae4c',
-      display: 'hidden'
-    });
+    $('#' + id_to_accept).children().animate(
+      { height: 0, opacity: 0, color: '#40ae4c', display: 'hidden' },
+      { complete: function() { $(this).parent().remove(); } }
+    );
   },
 
   reject: function(id_to_reject){
@@ -19,8 +17,6 @@ var codereview = {
   },
 
   start_review: function(id) {
-    //$('#' + id + ' .buttons-container').hide();
-    //$('#' + id + ' .buttons-container.started').fadeIn(100);
     $('#' + id + ' .buttons-container.start-skip-review').hide();
     $('#' + id + ' .buttons-container.accept-reject-commit').fadeIn(100);
   },

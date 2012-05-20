@@ -10,7 +10,6 @@ class CommitsController < ApplicationController
     if @commit
       @commit.update_attributes(:accepted => (params[:edit_type] == 'accept'), :is_new => false)
     end
-
     render :js => "codereview.#{params[:edit_type]}('#{params[:refid]}')"
   end
 
