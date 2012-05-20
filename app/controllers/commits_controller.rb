@@ -5,16 +5,19 @@ class CommitsController < ApplicationController
   end
 
   def edit
-    if @commit = Commit.find_by_refid(params[:refid])
-      @commit.update_attributes(:accepted => (params[:edit_type] == 'accept'), :is_new => false)
+    action, refid = params.values_at(:edit_type, :refid)
+    if commit = Commit.find_by_refid(params[:refid])
+      commit.send(:"#{action}!")
     end
-    render :js => "codereview.#{params[:edit_type]}('#{params[:refid]}')"
+    render :js => "codereview.#{action}('#{refid}')"
   end
 
   def start_review
-    c = Commit.find_by_refid(params[:refid])
-    c.update_attributes(:started => true, :accepted => nil)
-    render :js => "codereview.start_review('#{params[:refid]}')"
+    refid = params[:refid]
+    if commit = Commit.find_by_refid(refid)
+      commit.review!
+    end
+    render :js => "codereview.start_review('#{refid}')"
   end
   
   def sync
@@ -24,6 +27,7 @@ class CommitsController < ApplicationController
   
   def erase
     Commit.restart
+    Commit.sync
     redirect_to commits_path
   end
 end

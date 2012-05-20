@@ -12,7 +12,13 @@ var codereview = {
 
   reject: function(id_to_reject){
     $('#' + id_to_reject ).animate({
-      color:'#A54750'
+      color: '#a54750'
+    });
+  },
+
+  restart: function(id_to_reject){
+    $('#' + id_to_reject ).animate({
+      color: '#cdc8b1'
     });
   },
 
