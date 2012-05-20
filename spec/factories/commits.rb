@@ -1,9 +1,17 @@
 FactoryGirl.define do
+  sequence :refid do |n|
+    "refid #{n}"
+  end
+  
+  sequence :message do |n|
+    "Commit message #{n}"
+  end
+  
   factory :commit do
-    refid       '10cec06442d639fa8550e49a69df1ff177252b12'
+    refid
+    message
     author      'Joe Developer'
-    message     'Bug fix for TPS module'
-    commit_date Date.today
+    commit_date Time.now
     accepted    nil
     is_new      true
   end
