@@ -5,9 +5,7 @@ class CommitsController < ApplicationController
   end
 
   def edit
-    @commit = Commit.find_by_refid(params[:refid])
-
-    if @commit
+    if @commit = Commit.find_by_refid(params[:refid])
       @commit.update_attributes(:accepted => (params[:edit_type] == 'accept'), :is_new => false)
     end
     render :js => "codereview.#{params[:edit_type]}('#{params[:refid]}')"
