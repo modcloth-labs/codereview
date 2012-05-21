@@ -51,6 +51,19 @@ When /^I (accept|reject|restart) a commit$/ do |action|
   when "reject"
     click_link "review"
     click_link "reject"
+  when "restart"
+    click_link "review"
+    click_link "reject"
+    click_link "sync commit list"
+    click_link "restart"
+  end
+end
+
+Then /^I should( not)? see the commit marked as (in\-review|rejected|restarted)$/ do |condition, action|
+  if condition == "not"
+    page.should_not have_selector(".commit.#{action}")
+  else
+    page.should have_selector(".commit.#{action}")
   end
 end
 

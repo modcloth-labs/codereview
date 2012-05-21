@@ -11,21 +11,23 @@ var codereview = {
   },
 
   reject: function(id_to_reject){
-    $('#' + id_to_reject ).animate(
+    $('#' + id_to_reject).animate(
       { color: '#a54750' },
       { complete: function() { $(this).removeClass('new').addClass('rejected'); } }
     );
   },
 
   restart: function(id_to_restart){
-    $('#' + id_to_restart ).animate({
-      color: '#cdc8b1'
-    });
+    $('#' + id_to_restart ).animate(
+      { color: '#cdc8b1' },
+      { complete: function() { $(this).removeClass('rejected').addClass('restarted'); } }
+    );
   },
 
-  start_review: function(id) {
-    $('#' + id + ' .buttons-container.start-skip-review').hide();
-    $('#' + id + ' .buttons-container.accept-reject-commit').fadeIn(100);
+  start_review: function(id_to_review) {
+    $('#' + id_to_review + ' .buttons-container.start-skip-review').hide();
+    $('#' + id_to_review + ' .buttons-container.accept-reject-commit').fadeIn(100);
+    $('#' + id_to_review).removeClass('new').addClass('in-review');
   },
   
   sampleNamespace: {}
