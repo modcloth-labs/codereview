@@ -27,11 +27,11 @@ When /^I visit the homepage$/ do
 end
 
 When /^I sync with the repository$/ do
-  click_link "Sync Commit List"
+  click_link "sync commit list"
 end
 
 When /^I reset and sync with the repository$/ do
-  click_link "Reset and Sync"
+  click_link "reset and sync"
   page.driver.browser.switch_to.alert.accept 
 end
 
@@ -79,5 +79,5 @@ Then /^there are (.*?) commits recorded in (new|reject|accept|review) state$/ do
 end
 
 Then /^I should see a list of new commits$/ do
-  page.should have_selector(".new.commit")
+  page.should have_selector(".commit.new")
 end

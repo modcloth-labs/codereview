@@ -8,14 +8,14 @@ Feature: Reviewing commits
     And I visit the homepage
     And I reset and sync with the repository
 
-  @selenium
+  @javascript
   Scenario: Skipping a commit from review
     When I skip a commit from review
     Then there are no commits recorded in review state
     And there are no commits recorded in reject state
     And there are 1 commits recorded in accept state
 
-  @selenium
+  @javascript
   Scenario: Putting a commit in review
     When I review a commit
     Then I should see the Accept button for the commit
@@ -24,7 +24,7 @@ Feature: Reviewing commits
     And there are no commits recorded in reject state
     And there are no commits recorded in accept state
     
-  @selenium
+  @javascript
   Scenario: Rejecting a commit
     When I reject a commit
     
@@ -32,11 +32,15 @@ Feature: Reviewing commits
     And there are 1 commits recorded in reject state
     And there are no commits recorded in accept state
 
-  @selenium
+  @javascript
   Scenario: Accepting a commit
     When I accept a commit
     
     And there are no commits recorded in review state
     And there are no commits recorded in reject state
     And there are 1 commits recorded in accept state
+
+  @wip
+  Scenario: Restarting on a rejected commit
+    When I reject a commit
   

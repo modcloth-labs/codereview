@@ -772,13 +772,11 @@ legend span {
 /* line 47, ../../app/stylesheets/application.scss */
 #container #content .buttons-container a.review.skip {
   font-weight: normal;
-  font-style: italic;
   background-color: #EEE;
 }
 /* line 48, ../../app/stylesheets/application.scss */
 #container #content .buttons-container a.review.skip:hover {
   font-weight: normal;
-  font-style: italic;
   background-color: #DDD;
 }
 /* line 52, ../../app/stylesheets/application.scss */
