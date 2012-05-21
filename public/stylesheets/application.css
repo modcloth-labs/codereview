@@ -751,12 +751,16 @@ legend span {
   text-transform: uppercase;
 }
 /* line 44, ../../app/stylesheets/application.scss */
-#container #content .buttons-container a.yes {
+#container #content .buttons-container a.accept {
   background-color: #40ae4c;
 }
 /* line 45, ../../app/stylesheets/application.scss */
-#container #content .buttons-container a.no {
+#container #content .buttons-container a.reject {
   background-color: #CC2119;
+}
+/* line 45, ../../app/stylesheets/application.scss */
+#container #content .buttons-container a.restart {
+  background-color: #cdc8b1;
 }
 /* line 46, ../../app/stylesheets/application.scss */
 #container #content .buttons-container a.review {

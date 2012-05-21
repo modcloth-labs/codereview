@@ -1,14 +1,14 @@
-%li{:id => commit.refid, :class => "#{itemtype} commit"}
+%li{:id => commit.refid, :class => "commit #{itemtype}"}
   - unless commit.started?
     .buttons-container.start-skip-review
       =link_to 'review', start_review_commits_path(commit, :refid => commit.refid),                'data-remote' => 'true', :class => 'button review'
       =link_to 'skip review', edit_commit_path(commit, :edit_type => 'accept', :refid => commit.refid), 'data-remote' => 'true', :class => 'skip review'
   .buttons-container.accept-reject-commit{:style => (commit.started? ? "display: ''" : "display: none")}
-    =link_to 'accept', edit_commit_path(commit, :edit_type => 'accept', :refid => commit.refid), 'data-remote' => 'true', :class => 'yes'
+    =link_to 'accept', edit_commit_path(commit, :edit_type => 'accept', :refid => commit.refid), 'data-remote' => 'true', :class => 'accept'
     - if commit.rejected?
-      =link_to 'restart', edit_commit_path(commit, :edit_type => 'restart', :refid => commit.refid), 'data-remote' => 'true', :class => 'no'
+    =link_to 'restart', edit_commit_path(commit, :edit_type => 'restart', :refid => commit.refid), 'data-remote' => 'true', :class => 'restart'
     - else
-      =link_to 'reject', edit_commit_path(commit, :edit_type => 'reject', :refid => commit.refid), 'data-remote' => 'true', :class => 'no'
+      =link_to 'reject', edit_commit_path(commit, :edit_type => 'reject', :refid => commit.refid), 'data-remote' => 'true', :class => 'reject'
   .commit-description
     %span.id= "#{commit.refid} :: "
     %span.author= "#{commit.author} :: "

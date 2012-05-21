@@ -41,8 +41,9 @@
         color:#FFF;
         text-decoration: none;
         text-transform: uppercase;
-        &.yes{ background-color: #40ae4c; }
-        &.no{ background-color: #CC2119; }
+        &.accept{ background-color: #40ae4c; }
+        &.reject{ background-color: #CC2119; }
+        &.restart{ background-color: #cdc8b1; }
         &.review { color: #333; width:106px; text-align: center; margin-bottom:8px;}
         &.review.skip { font-weight:normal; font-style:italic; background-color:#EEE;}
         &.review.skip:hover { font-weight:normal; font-style:italic; background-color:#DDD;}

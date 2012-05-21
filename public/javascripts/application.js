@@ -11,13 +11,14 @@ var codereview = {
   },
 
   reject: function(id_to_reject){
-    $('#' + id_to_reject ).animate({
-      color: '#a54750'
-    });
+    $('#' + id_to_reject ).animate(
+      { color: '#a54750' },
+      { complete: function() { $(this).removeClass('new').addClass('rejected'); } }
+    );
   },
 
-  restart: function(id_to_reject){
-    $('#' + id_to_reject ).animate({
+  restart: function(id_to_restart){
+    $('#' + id_to_restart ).animate({
       color: '#cdc8b1'
     });
   },

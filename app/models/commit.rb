@@ -4,21 +4,22 @@ class Commit < ActiveRecord::Base
   scope :new_commits, where("is_new = ?", true).order('commit_date desc')
   scope :rejected,    where("is_new = ? AND accepted = ?", false, false).order('commit_date desc')
   scope :accepted,    where("is_new = ? AND accepted = ?", false, true).order('commit_date desc')
+  scope :in_review,   where("started = ? AND accepted = ?", true, false).order('commit_date desc')
 
   def accept!
-    update_attributes(:accepted => true, :is_new => false)
+    update_attributes(accepted: true, is_new: false)
   end
   
   def reject!
-    update_attributes(:accepted => false, :is_new => false)
+    update_attributes(accepted: false, is_new: false)
   end
   
   def restart!
-    update_attributes(:started => false, :accepted => false, :is_new => true)
+    update_attributes(started: false, accepted: false, is_new: true)
   end
   
   def review!
-    update_attributes(:started => true, :accepted => false)
+    update_attributes(started: true, accepted: false)
   end
   
   def rejected?
