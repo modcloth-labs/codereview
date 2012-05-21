@@ -1,30 +1,4 @@
 %ul
-  -@rejected_commits.each do |c|
-    %li{:id => c.refid, :class => 'rejected' }
-      .buttons-container
-        =link_to 'Good', edit_commit_path(c,:edit_type=>'accept',:refid => c.refid), 'data-remote' => 'true', :class =>'yes'
-        =link_to 'Follow Up', edit_commit_path(c,:edit_type=>'reject',:refid => c.refid), 'data-remote' => 'true', :class =>'no'
-      .commit-description
-        %span.id="#{c.refid} :: "
-        %span.author=c.author
-        %br
-        %span.message=simple_format c.message.gsub("\n","<br />")
+  = render :partial => "commit", :collection => @rejected_commits, :locals => { :itemtype => 'rejected' }
+  = render :partial => "commit", :collection => @new_commits,      :locals => { :itemtype => 'new' }
 
-  -@new_commits.each do |c|
-    %li{:id => c.refid, :class => 'new' }
-      -if c.started?
-        .buttons-container
-          =link_to 'Good', edit_commit_path(c,:edit_type=>'accept',:refid => c.refid), 'data-remote' => 'true', :class =>'yes'
-          =link_to 'Follow Up', edit_commit_path(c,:edit_type=>'reject',:refid => c.refid), 'data-remote' => 'true', :class =>'no'
-      -else
-        .buttons-container
-          =link_to 'Start Review', start_review_commits_path(c,:refid => c.refid), 'data-remote' =>'true', :class => 'button review'
-          =link_to 'Skip Review', edit_commit_path(c,:edit_type=>'accept',:refid => c.refid), 'data-remote' =>'true', :class => 'skip review'
-        .buttons-container.started{:style => 'display:none;'}
-          =link_to 'Good', edit_commit_path(c,:edit_type=>'accept',:refid => c.refid), 'data-remote' => 'true', :class =>'yes'
-          =link_to 'Follow Up', edit_commit_path(c,:edit_type=>'reject',:refid => c.refid), 'data-remote' => 'true', :class =>'no'
-      .commit-description
-        %span.id="#{c.refid} :: "
-        %span.author=c.author
-        %br
-        %span.message=simple_format c.message.gsub("\n","<br />")

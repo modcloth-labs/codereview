@@ -1,3 +1,3 @@
 #control_panel
-  =link_to 'Erase Reviews and Restart',erase_commits_path,:class => 'button', :confirm => 'Are you sure? This will erase all commit review history.' #unless ((@new_commits.size + @rejected_commits.size) < 1)
-  =link_to 'ReSync Commit List',sync_commits_path,:class => 'button'
+  =link_to 'sync commit list', sync_commits_path,  :class => 'button'
+  =link_to 'reset and sync',   erase_commits_path, :class => 'button', :confirm => 'Are you sure? This will erase all commit review history.' #unless ((@new_commits.size + @rejected_commits.size) < 1)

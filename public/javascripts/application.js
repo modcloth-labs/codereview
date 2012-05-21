@@ -1,26 +1,35 @@
 var codereview = {
   initialize: function() {
+    //
   },
 
   accept: function(id_to_accept){
-    $('#' + id_to_accept).fadeOut(100);
-//    $('#' + id_to_accept).animate({
-//      height:0,
-//      opacity:0,
-//      display:'none'
-//    });
+    $('#' + id_to_accept).children().animate(
+      { height: 0, opacity: 0, color: '#40ae4c', display: 'hidden' },
+      { complete: function() { $(this).parent().remove(); } }
+    );
   },
 
   reject: function(id_to_reject){
-    $('#' + id_to_reject ).animate({
-      color:'#A54750'
-    });
+    $('#' + id_to_reject).animate(
+      { color: '#a54750' },
+      { complete: function() { $(this).removeClass('new').addClass('rejected'); } }
+    );
   },
 
-  start_review: function(id) {
-    $('#' + id + ' .buttons-container').hide();
-    $('#' + id + ' .buttons-container.started').fadeIn(100);
+  restart: function(id_to_restart){
+    $('#' + id_to_restart ).animate(
+      { color: '#cdc8b1' },
+      { complete: function() { $(this).removeClass('rejected').addClass('restarted'); } }
+    );
   },
+
+  start_review: function(id_to_review) {
+    $('#' + id_to_review + ' .buttons-container.start-skip-review').hide();
+    $('#' + id_to_review + ' .buttons-container.accept-reject-commit').fadeIn(100);
+    $('#' + id_to_review).removeClass('new').addClass('in-review');
+  },
+  
   sampleNamespace: {}
 };
 
@@ -47,5 +56,5 @@ codereview.sampleNamespace = {
     // codereview.sampleNamespace.gitVars.repoAddress.name = 'Brian';
   }
 
-} )(codereview.sampleNamespace.gitVars.repoAddress)
+})(codereview.sampleNamespace.gitVars.repoAddress)
 
