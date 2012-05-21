@@ -1,4 +1,4 @@
-%li{:id => commit.refid, :class => itemtype}
+%li{:id => commit.refid, :class => "#{itemtype} commit"}
   - unless commit.started?
     .buttons-container.start-skip-review
       =link_to 'review', start_review_commits_path(commit, :refid => commit.refid),                'data-remote' => 'true', :class => 'button review'
